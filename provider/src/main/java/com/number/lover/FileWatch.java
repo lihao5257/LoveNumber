@@ -20,11 +20,11 @@ public class FileWatch {
     private static final Logger log = LogManager.getLogger(FileWatch.class);
 
     @Value("${mq.server.msg_receive_dir}")
-    String watchDir;
+    String                      watchDir;
     @Autowired
-    ProducerService producerService;
+    ProducerService             producerService;
     @Autowired
-    RedisRepository redisRepository;
+    RedisRepository             redisRepository;
 
     @Scheduled(cron = "0 0/10 * * * ?", initialDelay = 60000 * 1) // 每五分钟执行一次，第一启动延迟1分钟执行
     private void processFile() throws Exception {

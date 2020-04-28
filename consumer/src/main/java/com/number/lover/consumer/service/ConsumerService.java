@@ -12,19 +12,19 @@ import com.number.lover.rabbitmq.consumer.model.TelPhoneNumberToEs;
 @Service
 public class ConsumerService {
 
-    private final String INDEX_ALL_NUMBER = "test001";
-    private final String INDEX_LOVER_NUMBER = "test002";
+    private final String        INDEX_ALL_NUMBER   = "test001";
+    private final String        INDEX_LOVER_NUMBER = "test002";
 
     @Autowired
-    TelPhoneNumberDao telPhoneNumberDao;
-    private static final Logger LOGGER = LoggerFactory.getLogger(ConsumerService.class);
+    TelPhoneNumberDao           telPhoneNumberDao;
+    private static final Logger LOGGER             = LoggerFactory.getLogger(ConsumerService.class);
 
-    public static long countNubmer = 0;
+    public static long          countNubmer        = 0;
 
     @RabbitListener(queues = "${queue.A}")
     public void handleQueueAMessageReception(TelPhoneNumber telPhoneNumber) {
         LOGGER.info(
-                "Message received in Queue A : phoneNumer " + countNubmer++ + ":" + telPhoneNumber.getPhoneNumber());
+            "Message received in Queue A : phoneNumer " + countNubmer++ + ":" + telPhoneNumber.getPhoneNumber());
         TelPhoneNumberToEs es = new TelPhoneNumberToEs();
         es.setLoverNumber(telPhoneNumber.getLoverNumber());
         es.setPhoneNumber(telPhoneNumber.getPhoneNumber());

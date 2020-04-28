@@ -12,11 +12,11 @@ import com.number.lover.consumer.service.TelPhoneNumberDao;
 
 @RestController
 @RequestMapping("/numbers")
-public class BookController {
+public class NumberController {
 
     private TelPhoneNumberDao telPhoneNumberDao;
 
-    public BookController(TelPhoneNumberDao telPhoneNumberDao) {
+    public NumberController(TelPhoneNumberDao telPhoneNumberDao) {
         this.telPhoneNumberDao = telPhoneNumberDao;
     }
 

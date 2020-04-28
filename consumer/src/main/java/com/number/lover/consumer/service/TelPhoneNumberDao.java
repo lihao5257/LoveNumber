@@ -19,11 +19,11 @@ import com.number.lover.rabbitmq.consumer.model.TelPhoneNumberToEs;
 @Repository
 public class TelPhoneNumberDao {
 
-    private final String TYPE = "_doc";
+    private final String        TYPE = "_doc";
 
     private RestHighLevelClient restHighLevelClient;
 
-    private ObjectMapper objectMapper;
+    private ObjectMapper        objectMapper;
 
     public TelPhoneNumberDao(ObjectMapper objectMapper, RestHighLevelClient restHighLevelClient) {
         this.objectMapper = objectMapper;

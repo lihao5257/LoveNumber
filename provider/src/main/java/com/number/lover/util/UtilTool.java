@@ -23,7 +23,7 @@ public class UtilTool {
         if (!path.endsWith("/")) {
             path = path + "/";
         }
-        
+
         File file = new File(path);
         List<String> fileResultList = new LinkedList<String>();
         File[] fileList = file.listFiles();
@@ -32,11 +32,11 @@ public class UtilTool {
                 String fileName = fileList[i].getName();
                 fileResultList.add(path + fileName);
             }
-            
+
         }
         return fileResultList;
     }
-    
+
     /*
      * Get content from file
      */
@@ -45,11 +45,11 @@ public class UtilTool {
         if (file == null || file.length() == 0) {
             return null;
         }
-        
+
         // java 8 autoClose file reader,inputStream .etc
         try (FileReader fileReader = new FileReader(file);
-            Reader reader = new InputStreamReader(new FileInputStream(file), "utf-8")){
-            
+                Reader reader = new InputStreamReader(new FileInputStream(file), "utf-8")) {
+
             int ch = 0;
             StringBuffer sb = new StringBuffer();
             while ((ch = reader.read()) != -1) {
@@ -62,13 +62,13 @@ public class UtilTool {
             return null;
         }
     }
-    
+
     /*
      * Delete file 
      */
     public static void deleteFile(String deleteFile) {
         File file = new File(deleteFile);// 读取
-        if(file.isFile()){ // 判断是否是文件夹
+        if (file.isFile()) { // 判断是否是文件夹
             file.delete();// 删除
         }
     }

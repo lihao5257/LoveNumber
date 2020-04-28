@@ -14,12 +14,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class RedisRepositoryImpl implements RedisRepository {
 
-    private static final Logger log = LogManager.getLogger(RedisRepositoryImpl.class);
+    private static final Logger           log = LogManager.getLogger(RedisRepositoryImpl.class);
 
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
     private SetOperations<String, String> setOperations;
-    boolean checkFlag;
+    boolean                               checkFlag;
 
     /**
      * initialize SetOperations.
@@ -46,7 +46,7 @@ public class RedisRepositoryImpl implements RedisRepository {
      */
     @Override
     public void addLoverNumber(String loverNumber) {
-//        setOperations.intersect(loverNumber, setContainer);
+        //        setOperations.intersect(loverNumber, setContainer);
         setOperations.add("loverNumbers", loverNumber);
         Set<String> resultSet = setOperations.members("loverNumbers");
         System.out.println("add resultSet:" + resultSet);
